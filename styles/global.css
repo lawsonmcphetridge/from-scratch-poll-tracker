@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+
+
 :root {
     --background: rgb(224, 234, 247);
     --header-background: white;
     --footer-background: rgb(243, 242, 242);
 }
+
 
 body {
     height: 100vh;
@@ -32,4 +37,34 @@ footer {
     display: flex;
     justify-content: flex-end;
     background-color: var(--footer-background);
+}
+
+#add-b {
+    margin-left: 100px;
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+}
+.option {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.poll-detail {
+    background-color: var(--footer-background);
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.poll-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
