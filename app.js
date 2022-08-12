@@ -1,15 +1,18 @@
 // import functions and grab DOM elements
-const gameForm = document.getElementById('user-questions');
+import { createPoll, getPolls } from './fetch-utils.js';
+import { renderPoll } from './render-utils.js';
 
-const currentPoll = document.getElementById('current-poll');
-const pastPoll = document.getElementById('past-poll');
+
+const gameForm = document.getElementById('user-questions');
 
 const questionAaddButton = document.getElementById('add-a');
 const questionAsubtractButton = document.getElementById('subtract-a');
 const questionBaddButton = document.getElementById('add-b');
 const questionBsubtractButton = document.getElementById('subtract-b');
+const votesTotalA = document.getElementById('votes-amount-a');
+const votesTotalB = document.getElementById('votes-amount-b');
 
-const startPollButton = document.getElementById('start-poll');
+
 const endPollButton = document.getElementById('end-poll');
 // let state
 
@@ -31,18 +34,22 @@ gameForm.addEventListener('submit', (e) => {
 
 questionAaddButton.addEventListener('click', () => {
     votesA++;
+    displayCurrentPoll();
 });
 
 questionAsubtractButton.addEventListener('click', () => {
     votesA--;
+    displayCurrentPoll();
 });
 
 questionBaddButton.addEventListener('click', () => {
     votesB++;
+    displayCurrentPoll();
 });
 
 questionBsubtractButton.addEventListener('click', () => {
     votesB--;
+    displayCurrentPoll();
 });
 
 endPollButton.addEventListener('click', async () => {
@@ -54,9 +61,15 @@ endPollButton.addEventListener('click', async () => {
         votesB: votesB,
     };
 
-  
+    await createPoll(currentPoll);
+    question = '';
+    optionA = '';
+    optionB = '';
+    votesA = 0;
+    votesB = 0;
+    displayCurrentPoll();
+    displayPolls();
 });
-
 
 
 
@@ -69,9 +82,24 @@ function displayCurrentPoll() {
     optionAel.textContent = optionA;
     const optionBel = document.getElementById('option-b');
     optionBel.textContent = optionB;
-    questionAaddButton.textContent = votesA;
-    questionBaddButton.textContent = votesB;
+    votesTotalA.textContent = votesA;
+    votesTotalB.textContent = votesB;
 }
+
+
+
+async function displayPolls() {
+    const pollList = document.getElementById('past-poll');
+    pollList.textContent = '';
+    const polls = await getPolls();
+    for (let poll of polls) {
+        const div = renderPoll(poll);
+        pollList.append(div);
+    }
+}
+
+
+displayPolls();
 
 
 

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Web App</title>
 </head>
 
@@ -23,7 +24,7 @@
     </header>
 
     <main>
-        <h1>Lawsons poll tracker!</h1>
+        <h1>Lawson's poll tracker!</h1>
         <form id="user-questions">
 
             <p>question</p>
@@ -33,7 +34,7 @@
             <p>option two</p>
             <input name="user-option-b">
             <br>
-
+<button>Create Poll</button>
 
         </form>
         
@@ -45,14 +46,16 @@
                 
                 <div class="option">
                     <span id="option-a"></span>
-                    <button id="add-a">add</button>
-                    <button id="subtract-a">subtract</button>
+                    <div id="votes-amount-a"></div>
+                    <button id="add-a">voteA</button>
+                    <button id="subtract-a">SubtractA</button>
                 </div>
                 
                 <div class="option">
                     <span id="option-b"></span>
-                    <button id="add-b">add button</button>
-                    <button id="subtract-b">subtract</button>
+                    <div id="votes-amount-b"></div>
+                    <button id="add-b">voteB</button>
+                    <button id="subtract-b">subtractB</button>
                 </div>
                 
             </div>
@@ -60,7 +63,7 @@
         </section>
 
 
-        <button id="start-poll">start poll</button>
+
         <button id="end-poll">end poll</button>
 
         <section id="past-poll">
