@@ -12,16 +12,68 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Web App</title>
 </head>
 
 <body>
     <header>
         <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
+        <h1>Poll tracker</h1>
     </header>
 
     <main>
+        <h1>Lawson's poll tracker!</h1>
+        <form id="user-questions">
+
+            <p>question</p>
+            <input name="user-question">
+            <p>option one</p>
+            <input name="user-option-a">
+            <p>option two</p>
+            <input name="user-option-b">
+            <br>
+<button>Create Poll</button>
+
+        </form>
+        
+        <section id="current-poll">
+            <h1>Current Poll</h1>
+            <h2 id="question"></h2>
+
+            <div id="options">
+                
+                <div class="option">
+                    <span id="option-a"></span>
+                    <div id="votes-amount-a"></div>
+                    <button id="add-a">voteA</button>
+                    <button id="subtract-a">SubtractA</button>
+                </div>
+                
+                <div class="option">
+                    <span id="option-b"></span>
+                    <div id="votes-amount-b"></div>
+                    <button id="add-b">voteB</button>
+                    <button id="subtract-b">subtractB</button>
+                </div>
+                
+            </div>
+
+        </section>
+
+
+
+        <button id="end-poll">end poll</button>
+        <h1>Past Poll's</h1>
+
+        <section id="past-poll">
+        </section>
+
+
+        <section id="current-game"></section>
+        <section id="past-games"></section>
+
 
     </main>
 
